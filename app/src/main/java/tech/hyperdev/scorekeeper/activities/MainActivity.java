@@ -1,5 +1,6 @@
 package tech.hyperdev.scorekeeper.activities;
 
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -19,21 +20,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(savedInstanceState == null) {
+            scoreFragmentOne = new ScoreFragment();
+            scoreFragmentTwo = new ScoreFragment();
 
-        scoreFragmentOne = new ScoreFragment();
-        scoreFragmentTwo = new ScoreFragment();
+            scoreFragmentOne.setTeamName("Team 1");
+            scoreFragmentTwo.setTeamName("Team 2");
 
-        scoreFragmentOne.setTeamName("Team 1");
-        scoreFragmentTwo.setTeamName("Team 2");
-
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.teamOneFragment, scoreFragmentOne);
-        mFragmentTransaction.commit();
-
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.teamTwoFragment, scoreFragmentTwo);
-        mFragmentTransaction.commit();
+            mFragmentManager = getSupportFragmentManager();
+            mFragmentTransaction = mFragmentManager.beginTransaction();
+            mFragmentTransaction.replace(R.id.teamOneFragment, scoreFragmentOne);
+            mFragmentTransaction.replace(R.id.teamTwoFragment, scoreFragmentTwo);
+            mFragmentTransaction.commit();
+        }
     }
+
 }
