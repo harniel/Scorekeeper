@@ -12,19 +12,28 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentTransaction mFragmentTransaction;
     private FragmentManager mFragmentManager;
+    private ScoreFragment scoreFragmentOne;
+    private ScoreFragment scoreFragmentTwo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        scoreFragmentOne = new ScoreFragment();
+        scoreFragmentTwo = new ScoreFragment();
+
+        scoreFragmentOne.setTeamName("Team 1");
+        scoreFragmentTwo.setTeamName("Team 2");
+
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.teamOneFragment, new ScoreFragment());
+        mFragmentTransaction.replace(R.id.teamOneFragment, scoreFragmentOne);
         mFragmentTransaction.commit();
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.teamTwoFragment, new ScoreFragment());
+        mFragmentTransaction.replace(R.id.teamTwoFragment, scoreFragmentTwo);
         mFragmentTransaction.commit();
     }
 }
