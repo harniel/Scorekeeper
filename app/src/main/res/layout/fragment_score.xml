@@ -51,4 +51,6 @@
         app:layout_constraintLeft_toRightOf="@+id/btnPlus"
         app:layout_constraintRight_toLeftOf="@+id/btnMinus"
         app:layout_constraintTop_toBottomOf="@+id/tvTeamName" />
+
+
 </android.support.constraint.ConstraintLayout>
