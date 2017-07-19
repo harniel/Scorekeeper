@@ -56,6 +56,7 @@ public class ScoreFragment extends Fragment {
 
             }
         });
+
         mTvTeamName.setText(this.teamname);
         return view;
     }
